@@ -11,6 +11,8 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
+
+      <div id="cart" class="cart">Cart({{ cart }})</div>
       
       <div class="product-display">
         <div class="product-container">
@@ -24,12 +26,14 @@
             <ul>
               <li v-for="detail in details">{{ detail }}</li>
             </ul>
-            <select id="select-variant">
-              <option v-for="variant in variants" :key="variant.id">{{ variant.color }}</option>
-            </select>
-            <select id="select-size">
+            <div v-for="variant in variants" :key="variant.id" @mouseover="changeImage(variant.image)">{{ variant.color }}</div>
+            <select id="select-size" name="select-size">
               <option v-for="size in sizes">{{ size }}</option>
             </select>
+            <div class="d-flex">
+              <button type="button" id="addToCart" class="button col-3" v-on:click="addToCart">Add to Cart</button>
+              <button type="button" v-show="cart > 0" class="button col-3" v-on:click="removeOneFromCart()">Remove one item</button>
+            </div>
           </div>
         </div>
       </div>
