@@ -21,6 +21,15 @@
             <h1>{{ product }}</h1>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
+            <ul>
+              <li v-for="detail in details">{{ detail }}</li>
+            </ul>
+            <select id="select-variant">
+              <option v-for="variant in variants" :key="variant.id">{{ variant.color }}</option>
+            </select>
+            <select id="select-size">
+              <option v-for="size in sizes">{{ size }}</option>
+            </select>
           </div>
         </div>
       </div>
