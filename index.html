@@ -15,7 +15,6 @@
       <div class="cart">Cart({{ cart.length }})</div>
       
       <product-display :premium="premium" @add-to-cart="addToCart" @remove-from-cart="removeFromCart"></product-display>
-
     </div>
 
     <!-- Import App -->
@@ -24,6 +23,8 @@
     <!-- Import ProductDisplay.js Component -->
     <script src="./components/ProductDisplay.js"></script>
     <script src="./components/ProductDetails.js"></script>
+    <script src="./components/ReviewForm.js"></script>
+    <script src="./components/ReviewDisplay.js"></script>
     <!-- Mount App -->
     <script>
       const mountedApp = app.mount('#app')

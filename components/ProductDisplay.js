@@ -32,11 +32,14 @@ app.component('product-display', {
         <button class="button" :class="{ disabledButton: !inStock }" :disabled="!inStock" v-on:click="removeFromCart">Remove from Cart</button>
       </div>
     </div>
+    <review-display v-if="reviews.length" :reviews="reviews" />
+    <review-form  @review-submitted="submitReview"/>
   </div>`,
   data() {
     return {
         product: 'Socks',
         brand: 'Vue Mastery',
+        reviews: [],
         selectedVariant: 0,
         details: ['50% cotton', '30% wool', '20% polyester'],
         variants: [
@@ -54,6 +57,9 @@ methods: {
     },
     removeFromCart() {
         this.$emit('remove-from-cart', this.variants[this.selectedVariant].id)
+    },
+    submitReview(review) {
+        this.reviews.push(review)
     }
 },
 computed: {
